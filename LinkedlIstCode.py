@@ -6,26 +6,26 @@ class node :
 
 #Add an element in linked list at given index
 
-    def push(self, d, n):
-        new_node = node(d)
+    def push(self, data, pos):
+        new_node = node(data)
         if self.next is None:
             self.next = new_node
             return
         temp = self
-        c=2
+        count_node=2
         while (temp):
-            if(c==n) :
+            if(count_node == pos) :
                 new_node.next = temp.next
                 temp.next = new_node
                 return
             else :
                 temp = temp.next
-                c = c+1
+                count_node = count_node+1
 
 #Add an Element at the end of the list
 
-    def insertLast(self,d):
-        new_Node = node(d)
+    def insertLast(self,data):
+        new_Node = node(data)
         if self.next is None:
             self = new_Node
             return
@@ -36,12 +36,12 @@ class node :
 
 #Delete a node
 
-    def pop(self,d):
+    def pop(self,data):
         if self.next is None :
             return
         temp=self
         while(temp):
-            if(temp.next.data ==  d):
+            if(temp.next.data ==  data):
                 temp.next = temp.next.next
                 return
             temp = temp.next
@@ -54,6 +54,8 @@ class node :
             print(temp.data, end=" ")
             temp = temp.next
         print()
+
+#main : execution starts here
 
 if __name__ == '__main__':
     g = node(1)
